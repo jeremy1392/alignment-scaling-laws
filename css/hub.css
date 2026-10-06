@@ -1,0 +1,94 @@
+/* =========================================================
+   ALIGNMENT: the hub (choice of game and angle)
+   Shared tokens: the same palette as the games.
+   ========================================================= */
+:root {
+  --bg: #090c13;
+  --panel: #0f141d;
+  --panel-2: #131a26;
+  --line: rgba(255, 255, 255, .08);
+  --text: #e6e9ef;
+  --muted: #8a94a8;
+  --accent: #5ee1ff;
+  --ok: #6be3a4;
+  --warn: #ffb547;
+  --hot: #ff5f6d;
+  --neg: #b49cff;
+  --mono: 'JetBrains Mono', ui-monospace, Consolas, monospace;
+  --sans: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --radius: 14px;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body {
+  background: radial-gradient(ellipse at 50% -10%, #142033, var(--bg) 60%) fixed, var(--bg);
+  color: var(--text);
+  font-family: var(--sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+.hub { max-width: 1100px; margin: 0 auto; padding: 40px 24px 32px; }
+
+.hub-head h1 { margin: 0; font: 800 15px var(--mono); letter-spacing: .5em; color: var(--accent); }
+.hub-q { margin: 14px 0 0; font: 800 clamp(26px, 4.4vw, 40px)/1.15 var(--sans); letter-spacing: -.01em; }
+.hub-lead { max-width: 760px; margin: 14px 0 0; font: 400 16px/1.6 var(--sans); color: #b8c0cf; }
+.hub-lead em { color: var(--text); font-style: normal; font-weight: 600; }
+
+.games { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 30px; }
+.game {
+  display: flex; flex-direction: column;
+  padding: 20px; border-radius: var(--radius);
+  background: linear-gradient(180deg, var(--panel-2), var(--panel));
+  border: 1px solid var(--line);
+}
+.game-head { display: flex; align-items: center; gap: 12px; }
+.game-icon { font-size: 26px; line-height: 1; }
+.game-head h2 { margin: 0; font: 700 19px var(--sans); }
+.badge {
+  margin-left: auto; padding: 3px 8px; border-radius: 99px;
+  font: 600 11px var(--mono); text-transform: uppercase; letter-spacing: .08em;
+  color: var(--ok); border: 1px solid rgba(107, 227, 164, .4);
+}
+.game-line { flex: 1; margin: 10px 0 16px; font: 400 14px/1.55 var(--sans); color: #aeb6c6; }
+
+.angle-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
+.angle {
+  display: flex; flex-direction: column; gap: 3px;
+  padding: 10px 10px; border-radius: 10px;
+  border: 1px solid var(--line); background: rgba(255, 255, 255, .02);
+  color: var(--text); text-decoration: none;
+  transition: border-color .15s, background .15s, transform .15s;
+}
+.angle strong { font: 600 13px var(--sans); }
+.angle span { font: 500 11px var(--mono); color: var(--muted); }
+.angle:hover, .angle:focus-visible { transform: translateY(-1px); outline: none; }
+.angle-helps:hover, .angle-helps:focus-visible { border-color: var(--ok); background: rgba(107, 227, 164, .07); }
+.angle-balance:hover, .angle-balance:focus-visible { border-color: var(--accent); background: rgba(94, 225, 255, .07); }
+.angle-debt:hover, .angle-debt:focus-visible { border-color: var(--hot); background: rgba(255, 95, 109, .07); }
+.angle.angle-measured { border-style: dashed; }
+.angle.angle-measured:hover, .angle.angle-measured:focus-visible { border-color: var(--neg); background: rgba(180, 156, 255, .08); }
+.angle.off { opacity: .4; pointer-events: none; }
+
+.angles-help { margin-top: 34px; }
+.angles-help h2 { margin: 0 0 10px; font: 600 12px var(--mono); text-transform: uppercase; letter-spacing: .14em; color: var(--muted); }
+.angles-help ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 8px 24px; }
+.angle-help { display: flex; flex-direction: column; gap: 2px; padding-left: 12px; border-left: 3px solid var(--line); }
+.angle-help strong { font: 600 14px var(--sans); }
+.angle-help span { font: 400 13px/1.5 var(--sans); color: #aeb6c6; }
+.angle-help.angle-helps { border-color: var(--ok); }
+.angle-help.angle-balance { border-color: var(--accent); }
+.angle-help.angle-debt { border-color: var(--hot); }
+.angle-help.angle-measured { border-color: var(--neg); }
+
+.hub-foot { margin-top: 34px; padding-top: 16px; border-top: 1px solid var(--line); }
+.hub-foot p { margin: 0; font: 400 12px/1.6 var(--sans); color: var(--muted); }
+.hub-foot a { color: inherit; text-decoration: underline; text-underline-offset: 2px; }
+.hub-foot a:hover, .hub-foot a:focus-visible { color: var(--text, inherit); }
+
+@media (max-width: 760px) {
+  .hub { padding: 26px 16px 24px; }
+  .games, .angles-help ul { grid-template-columns: 1fr; }
+  .angle-row { grid-template-columns: 1fr 1fr; }
+}

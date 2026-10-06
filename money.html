@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The company · Alignment</title>
+  <meta name="description" content="Run an AI company. A bigger model earns more, but its safety bill grows too. Does the bill grow faster or slower than revenue?">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/money.css">
+</head>
+<body>
+  <header class="top">
+    <div class="top-id">
+      <a id="brand" class="brand" href="index.html">ALIGNMENT</a>
+      <span class="game-name">The company</span>
+      <span id="world-pill" class="world-pill"></span>
+    </div>
+    <nav id="angles" class="angles" aria-label="Angles"></nav>
+    <a id="back" class="back" href="index.html">← All games</a>
+  </header>
+
+  <main class="money">
+    <p id="story" class="story" aria-live="polite">Your AI company is about to open.</p>
+
+    <section id="end" class="end" hidden aria-labelledby="end-title"></section>
+
+    <div class="board">
+      <section class="card company" aria-labelledby="t-company">
+        <h2 id="t-company" class="card-title">Your company</h2>
+        <div class="company-body">
+          <svg id="building" class="building" viewBox="0 0 200 230" role="img" aria-label="Your office building: one floor per model size"></svg>
+          <div class="facts">
+            <div class="fact">
+              <span class="label">Year</span>
+              <strong><span id="year">1</span> <small id="year-of">of 8</small></strong>
+            </div>
+            <div class="fact">
+              <span class="label">Model size</span>
+              <strong id="size">×1</strong>
+              <small id="params">0.5 billion parameters</small>
+            </div>
+            <div class="fact fact-bank">
+              <span class="label">Bank</span>
+              <strong id="bank-fact">$0</strong>
+            </div>
+          </div>
+        </div>
+        <div id="actions" class="actions">
+          <button id="btn-train" type="button" class="btn btn-main" disabled>
+            <span class="btn-label">Train a bigger model</span>
+            <span class="btn-sub">twice the size · one year</span>
+          </button>
+          <button id="btn-audit" type="button" class="btn btn-audit" disabled>
+            <span class="btn-label">Order an audit</span>
+            <span id="audit-left" class="btn-sub">2 left</span>
+          </button>
+        </div>
+      </section>
+
+      <section class="card gauge" aria-labelledby="t-share">
+        <h2 id="t-share" class="card-title">Safety bill as a share of revenue</h2>
+        <div class="share-row">
+          <span id="share" class="share-big">27%</span>
+          <span id="trend-arrow" class="trend-arrow" aria-hidden="true"></span>
+        </div>
+        <p id="trend-words" class="trend-words">Your starting point.</p>
+        <div class="share-bars-wrap">
+          <div id="share-bars" class="share-bars" aria-hidden="true"></div>
+          <div class="share-axis">
+            <span>year 1</span>
+            <span class="ref-key"><span><i class="k-start"></i>year 1 level</span><span id="key-full" hidden><i class="k-full"></i>all revenue</span></span>
+            <span>year 8</span>
+          </div>
+        </div>
+        <p id="growth" class="growth"></p>
+      </section>
+
+      <section class="card books" aria-labelledby="t-books">
+        <h2 id="t-books" class="card-title">This year's books</h2>
+        <dl class="ledger">
+          <div class="row"><dt>Revenue</dt><dd id="revenue" class="pos">$0</dd></div>
+          <div class="row"><dt>Safety bill</dt><dd id="bill" class="neg">$0</dd></div>
+          <div class="row total"><dt>Profit</dt><dd id="profit">$0</dd></div>
+        </dl>
+        <div class="bank">
+          <span class="label">Bank</span>
+          <strong id="bank">$0</strong>
+          <span id="bank-note" class="bank-note"></span>
+        </div>
+        <div class="hidden-box">
+          <span class="label"><span class="dot dot-hidden"></span>Hidden problems, not on the bill</span>
+          <strong id="hidden-pool">?</strong>
+          <span id="hidden-note" class="hidden-note">You cannot see them. An audit can find some.</span>
+        </div>
+      </section>
+
+      <section class="card bill-card" aria-labelledby="t-bill">
+        <h2 id="t-bill" class="card-title">The safety bill, risk by risk</h2>
+        <ul id="risk-list" class="risk-list"></ul>
+        <p class="card-note">Each bar: the share of this year's revenue that the risk costs.</p>
+      </section>
+
+      <section class="card chart-card" aria-labelledby="t-chart">
+        <h2 id="t-chart" class="card-title">Money per year</h2>
+        <div class="legend">
+          <span><i class="sw sw-rev"></i>Revenue</span>
+          <span><i class="sw sw-bill"></i>Safety bill</span>
+          <span id="legend-true" class="legend-true" hidden><i class="sw sw-true"></i>True bill, with hidden problems</span>
+        </div>
+        <div id="chart" class="chart"></div>
+      </section>
+    </div>
+  </main>
+
+  <div id="intro" class="overlay" role="dialog" aria-modal="true" aria-labelledby="intro-title">
+    <div class="dialog">
+      <p class="dialog-kicker">The company</p>
+      <h2 id="intro-title">You run an AI company.</h2>
+      <div id="intro-body" class="intro-body"></div>
+      <button id="btn-start" type="button" class="btn btn-main btn-start"><span class="btn-label">Open the company</span></button>
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="js/core.js"></script>
+  <script src="js/measured.js"></script>
+  <script src="js/law.js"></script>
+  <script src="js/money.js"></script>
+</body>
+</html>

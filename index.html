@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Alignment</title>
+  <meta name="description" content="Does keeping AI safe get harder as models grow? Four small interactive games, each from four angles, including real measurements.">
+  <script>
+    // Old links (index.html?world=…) went straight to the house game
+    (function () {
+      var p = new URLSearchParams(location.search);
+      if (p.get('world') && !p.get('hub')) location.replace('house.html' + location.search);
+    })();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/hub.css">
+</head>
+<body>
+  <main class="hub">
+    <header class="hub-head">
+      <h1>ALIGNMENT</h1>
+      <p class="hub-q">Does keeping AI safe get harder as models grow?</p>
+      <p class="hub-lead">Every AI model has flaws that must be corrected. A bigger model can do more, and its flaws grow too.
+        The question is whether the cost of correcting them grows <em>faster</em> or <em>slower</em> than the model itself.
+        Pick a game, then an angle.</p>
+    </header>
+
+    <section class="games" id="games" aria-label="Games"></section>
+
+    <section class="angles-help" aria-labelledby="angles-title">
+      <h2 id="angles-title">The four angles</h2>
+      <ul id="angles"></ul>
+    </section>
+
+    <footer class="hub-foot">
+      <p>From the preprint <em>Toward Alignment Scaling Laws: A Framework and First Preregistered Measurements</em>
+        (<a href="https://www.jeremycanale.com">Jeremy Canale</a>, 2026). The measured angle uses two
+        preregistered studies: osf.io/wda8q and osf.io/q2j3y. More at
+        <a href="https://www.jeremycanale.com">www.jeremycanale.com</a>.</p>
+    </footer>
+  </main>
+
+  <script src="js/measured.js"></script>
+  <script src="js/law.js"></script>
+  <script src="js/hub.js"></script>
+</body>
+</html>

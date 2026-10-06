@@ -1,0 +1,15 @@
+# This repository is the website of the games (www.aisafety.fun) and nothing else.
+# Everything is ignored except the files the site serves; never add the paper or its notes.
+/*
+!/index.html
+!/house.html
+!/money.html
+!/garden.html
+!/replay.html
+!/css/
+!/js/
+!/CNAME
+!/LICENSE
+!/README.md
+!/.gitignore
+!/.gitattributes

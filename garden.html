@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The garden · Alignment</title>
+  <meta name="description" content="Grow a garden. More ground means more weeds, and some roots stay hidden. Does weeding grow faster or slower than the garden?">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/garden.css">
+</head>
+<body>
+  <header class="top">
+    <div class="top-id">
+      <a id="brand" class="brand" href="index.html">ALIGNMENT</a>
+      <span class="game-name">The garden</span>
+      <span id="world-pill" class="world-pill"></span>
+    </div>
+    <nav id="angles" class="angles" aria-label="Angles"></nav>
+    <a id="back" class="back" href="index.html">← All games</a>
+  </header>
+
+  <main class="garden-main">
+    <section class="field-card" aria-label="The garden">
+      <div id="field" class="field"></div>
+      <span id="chip-season" class="chip chip-season">Season 0 of 7</span>
+      <span id="chip-roots" class="chip chip-roots" hidden>Hidden roots: ?</span>
+      <span id="chip-scale" class="chip chip-scale" hidden></span>
+      <span id="chip-lost" class="chip chip-lost" hidden></span>
+    </section>
+
+    <aside class="side">
+      <section class="card meter" aria-labelledby="t-meter">
+        <h2 id="t-meter" class="card-title">Weeding hours per m²</h2>
+        <div class="meter-row">
+          <span id="per-m2" class="meter-big">–</span>
+          <p id="trend" class="trend">
+            <span id="trend-arrow" class="trend-arrow" aria-hidden="true"></span>
+            <span id="trend-words">The key number. Watch it as the garden grows.</span>
+          </p>
+        </div>
+        <p id="meter-note" class="meter-note">Your time is 1 hour per m² each season. Above that, the weeds win.</p>
+      </section>
+
+      <section class="card work" aria-labelledby="t-work">
+        <div class="work-head">
+          <h2 id="t-work" class="card-title">This season</h2>
+          <span id="season-line" class="season-line"></span>
+        </div>
+        <div class="hours" aria-hidden="true">
+          <div class="hours-labels">
+            <span>Weeding needs <b id="h-need">–</b></span>
+            <span>You have <b id="h-have">–</b></span>
+          </div>
+          <div class="hours-bar">
+            <div id="h-need-bar" class="h-need"></div>
+            <div id="h-used" class="h-used"></div>
+            <div id="h-mark" class="h-mark"></div>
+          </div>
+        </div>
+        <p id="story" class="story" aria-live="polite">Plant the garden to start.</p>
+        <div class="actions">
+          <button id="btn-weed" type="button" class="btn btn-main" disabled>Weed the garden</button>
+          <button id="btn-dig" type="button" class="btn btn-dig" disabled hidden>
+            <span class="btn-label">Dig deep (inspection)</span>
+            <span id="dig-left" class="btn-sub">2 left</span>
+          </button>
+          <button id="btn-next" type="button" class="btn btn-next" disabled>Extend the garden</button>
+        </div>
+        <dl class="facts">
+          <div><dt>Weeds this season</dt><dd id="f-weeds">–</dd></div>
+          <div><dt>Ground lost</dt><dd id="f-lost">0 m²</dd></div>
+          <div id="f-roots-row"><dt>Hidden roots</dt><dd id="f-roots">?</dd></div>
+        </dl>
+      </section>
+
+      <section class="card chart-card" aria-labelledby="t-chart">
+        <h2 id="t-chart" class="card-title">Weeding hours per m², season by season</h2>
+        <div id="chart" class="chart"></div>
+      </section>
+    </aside>
+
+    <section class="card legend-card" aria-labelledby="t-legend">
+      <h2 id="t-legend" class="card-title">The weeds: the model's flaws</h2>
+      <ul id="legend" class="legend"></ul>
+      <p id="legend-note" class="legend-note"></p>
+    </section>
+  </main>
+
+  <div id="intro" class="overlay" role="dialog" aria-modal="true" aria-labelledby="intro-title">
+    <div class="dialog">
+      <p id="intro-kicker" class="dialog-kicker">The garden</p>
+      <h2 id="intro-title">Your garden is an AI model. The weeds are its flaws.</h2>
+      <div id="intro-body" class="intro-body"></div>
+      <button id="btn-start" type="button" class="btn btn-main btn-start" disabled>Plant the garden</button>
+    </div>
+  </div>
+
+  <div id="end" class="overlay end-overlay" role="dialog" aria-modal="true" aria-labelledby="end-title" hidden>
+    <div id="end-dialog" class="dialog end-dialog"></div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="js/core.js"></script>
+  <script src="js/measured.js"></script>
+  <script src="js/law.js"></script>
+  <script src="js/garden.js"></script>
+</body>
+</html>

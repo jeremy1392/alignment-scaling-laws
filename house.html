@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Alignment · The house</title>
+  <meta name="description" content="The house: flies in a house, traps, and a model that grows. Does the cost of keeping it clean grow faster or slower than the house?">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header class="topbar">
+    <div class="brand">
+      <div class="brand-row">
+        <h1>ALIGNMENT</h1>
+        <span id="world-tag" class="tagline">the house</span>
+      </div>
+      <nav class="game-nav" aria-label="Games and angles">
+        <a id="nav-back" class="nav-back" href="index.html">&larr; All games</a>
+        <span id="nav-angles" class="nav-angles"></span>
+      </nav>
+    </div>
+    <div class="stats">
+      <div class="stat stat-align" title="How safe the model looks, counting only the flies we can see. It goes back to 100% after each cleaning.">
+        <span class="stat-label">Looks safe</span>
+        <span id="stat-align" class="stat-value">100.0%</span>
+        <div class="gauge"><div id="gauge-fill" class="gauge-fill"></div></div>
+      </div>
+      <div class="stat stat-true unknown" title="Unknown until the inspection. Then: how safe the model is once the hidden flies found by the UV lamp are counted too.">
+        <span class="stat-label">After inspection</span>
+        <span id="stat-true" class="stat-value">?</span>
+        <div class="gauge"><div id="true-fill" class="gauge-fill"></div></div>
+      </div>
+      <div class="stat stat-cap" title="The share of the model still free to learn new things. Every catch uses up some of it.">
+        <span class="stat-label">Room to learn</span>
+        <span id="stat-cap" class="stat-value">100.0%</span>
+        <div class="gauge"><div id="cap-fill" class="gauge-fill"></div></div>
+      </div>
+      <div class="stat stat-caught" title="Flies caught by the traps so far.">
+        <span id="stat-flies-label" class="stat-label">Flies caught</span>
+        <span id="stat-flies" class="stat-value">0</span>
+      </div>
+      <div class="stat stat-frozen" title="Cleaning cost so far: weights frozen by the corrections, out of the model's size.">
+        <span class="stat-label">Cleaning cost</span>
+        <span id="stat-frozen" class="stat-value">0 / 384</span>
+      </div>
+      <button id="btn-legend" type="button" class="btn-ghost">Explain</button>
+    </div>
+  </header>
+
+  <main class="split">
+    <section class="pane pane-house">
+      <div class="pane-title">The house · where the model acts</div>
+      <div id="house" class="house"></div>
+    </section>
+    <section class="pane pane-model">
+      <div id="model-title" class="pane-title">The model · 6 layers · 384 weights</div>
+      <div id="cube-scene" class="scene"></div>
+    </section>
+  </main>
+
+  <footer class="console">
+    <section class="panel actions-panel">
+      <div class="panel-title">Actions</div>
+      <div id="actions" class="actions">
+        <span class="placeholder">no action available</span>
+      </div>
+    </section>
+    <section class="panel law-panel" title="After each swarm: what cleaning it cost, divided by the size of the house (the model). Going down: scaling helps. Flat: keeps pace. Going up: alignment debt.">
+      <div class="panel-title">Cleaning cost per room</div>
+      <div id="per-room" class="per-room"></div>
+    </section>
+    <section class="panel log-panel">
+      <div class="panel-title">Log</div>
+      <ul id="log" class="log" aria-live="polite"></ul>
+    </section>
+  </footer>
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="js/core.js"></script>
+  <script src="js/house.js"></script>
+  <script src="js/cube.js"></script>
+  <script src="js/fly.js"></script>
+  <script src="js/trap.js"></script>
+  <script src="js/world.js"></script>
+  <script src="js/chart.js"></script>
+  <script src="js/measured.js"></script>
+  <script src="js/law.js"></script>
+  <script src="js/game.js"></script>
+</body>
+</html>

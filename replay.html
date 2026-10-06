@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The experiment · Alignment</title>
+  <meta name="description" content="A one-minute replay of the experiment: AI models of seven sizes, lessons counted until each flaw is fixed, and what the trend says about the cost of safety as models grow.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/replay.css">
+</head>
+<body>
+  <header class="rp-head">
+    <div class="rp-brand">
+      <a class="brand" id="brand" href="index.html">ALIGNMENT</a>
+      <span class="rp-page">The experiment</span>
+      <span class="world-badge" id="world-badge"></span>
+    </div>
+    <nav class="rp-nav" aria-label="Angles and games">
+      <span class="nav-label" id="angles-label">Angle</span>
+      <div class="angles" id="angles" role="group" aria-labelledby="angles-label"></div>
+      <a class="back" id="back" href="index.html">&larr; All games</a>
+    </nav>
+  </header>
+
+  <main class="rp">
+    <section class="stage" aria-label="Replay of the experiment">
+      <div class="side-top" id="side-top" aria-live="polite"></div>
+      <div class="side-mid" id="side-mid"></div>
+
+      <figure class="chart-wrap" id="chart-wrap">
+        <div class="chart-head">
+          <span class="chart-title" id="chart-title"></span>
+          <span class="chart-badge" id="chart-badge"></span>
+        </div>
+        <div class="plot" id="plot"></div>
+        <div class="card" id="card" hidden></div>
+        <div class="summary" id="summary" hidden></div>
+        <figcaption class="legend" id="legend"></figcaption>
+      </figure>
+
+      <div class="side-bottom" id="side-bottom"></div>
+    </section>
+
+    <nav class="player" aria-label="Replay controls">
+      <button type="button" id="next" class="btn-next"><span class="next-fill" id="next-fill"></span><span class="next-label" id="next-label">Next</span></button>
+      <button type="button" id="pause" class="btn-pause" aria-pressed="false"><span class="pause-ic" aria-hidden="true"></span><span class="pause-label" id="pause-label">Pause</span></button>
+      <ol class="chapters" id="chapters" aria-label="Steps"></ol>
+    </nav>
+  </main>
+
+  <div class="tip" id="tip" role="tooltip" hidden></div>
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="js/core.js"></script>
+  <script src="js/measured.js"></script>
+  <script src="js/law.js"></script>
+  <script src="js/replay.js"></script>
+</body>
+</html>
